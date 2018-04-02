@@ -1,0 +1,27 @@
+<%= form_with(model: workflow_stage, local: true) do |form| %>
+  <% if workflow_stage.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(workflow_stage.errors.count, "error") %> prohibited this workflow_stage from being saved:</h2>
+
+      <ul>
+      <% workflow_stage.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :workflow_stage_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :workflow_stage_description %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

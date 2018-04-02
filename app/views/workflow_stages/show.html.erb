@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @workflow_stage.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @workflow_stage.description %>
+</p>
+
+<%= link_to 'Edit', edit_workflow_stage_path(@workflow_stage) %> |
+<%= link_to 'Back', workflow_stages_path %>

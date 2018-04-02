@@ -1,0 +1,2 @@
+module WorkflowStagesHelper
+end
