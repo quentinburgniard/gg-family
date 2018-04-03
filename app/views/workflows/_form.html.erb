@@ -18,10 +18,30 @@
 
 <div class="field">
   <%= form.label :description %>
-  <%= form.text_area :description, id: :workflow_description %>
+  <%= form.text_area :description, id: :workflow_description, class: 'materialize-textarea' %>
 </div>
 
 Addresses:
+<div class="scale-transition scale-in">
+
+
+<ul >
+  <%= form.fields_for :workflow_stages do |workflow_stages_form| %>
+  <li>
+    <%= workflow_stages_form.label :name %>
+    <%= workflow_stages_form.text_field :name %>
+
+    <%= workflow_stages_form.label :description %>
+    <%= workflow_stages_form.text_area :description, class: 'materialize-textarea' %>
+  </li>
+  <% end %>
+</ul>
+</div>
+
+<a id="scale-demo" href="#!" class="btn-floating btn-large waves-light">
+    <i class="material-icons">add</i>
+  </a>
+
 <ul>
   <%= form.fields_for :workflow_stages do |workflow_stages_form| %>
   <li>
@@ -29,24 +49,15 @@ Addresses:
     <%= workflow_stages_form.text_field :name %>
 
     <%= workflow_stages_form.label :description %>
-    <%= workflow_stages_form.text_area :description %>
+    <%= workflow_stages_form.text_area :description, class: 'materialize-textarea'   %>
   </li>
   <% end %>
 </ul>
 
-<ul>
-  <%= form.fields_for :workflow_stages do |workflow_stages_form| %>
-  <li>
-    <%= workflow_stages_form.label :name %>
-    <%= workflow_stages_form.text_field :name %>
-
-    <%= workflow_stages_form.label :description %>
-    <%= workflow_stages_form.text_area :description %>
-  </li>
-  <% end %>
-</ul>  
-
 <div class="actions">
-  <%= form.submit %>
+
+  <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+    <i class="material-icons right">send</i>
+  </button>
 </div>
 <% end %>

@@ -13,3 +13,5 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+//= require materialize
+//= require jquery-ui/widgets/sortable
