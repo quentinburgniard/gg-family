@@ -55,3 +55,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # https://github.com/mkhairi/materialize-sass
 gem 'materialize-sass', '~> 1.0.0.beta'
+
+# https://github.com/jquery-ui-rails/jquery-ui-rails
+gem 'jquery-ui-rails'
