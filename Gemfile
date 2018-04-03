@@ -54,4 +54,4 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # https://github.com/mkhairi/materialize-sass
-gem 'materialize-sass'
+gem 'materialize-sass', '~> 1.0.0.beta'
