@@ -10,5 +10,9 @@
   <%= @workflow.description %>
 </p>
 
+<% for workflow_stage in @workflow.workflow_stages %>
+<%= workflow_stage.name %>
+<% end %>
+
 <%= link_to 'Edit', edit_workflow_path(@workflow) %> |
 <%= link_to 'Back', workflows_path %>
