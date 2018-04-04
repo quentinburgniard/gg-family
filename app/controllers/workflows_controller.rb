@@ -70,6 +70,6 @@
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def workflow_params
-      params.require(:workflow).permit(:name, :description, workflow_stages_attributes: [:name, :description])
+      params.require(:workflow).permit(:name, :description, workflow_stages_attributes: [:id, :name, :description])
     end
 end

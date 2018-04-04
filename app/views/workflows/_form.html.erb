@@ -1,4 +1,4 @@
-  <%= form_with(model: workflow, local: true) do |form| %>
+<%= form_with(model: workflow, local: true) do |form| %>
 <% if workflow.errors.any? %>
 <div id="error_explanation">
   <h2><%= pluralize(workflow.errors.count, "error") %> prohibited this workflow from being saved:</h2>
@@ -35,6 +35,8 @@
           <%= workflow_stages_form.label :description %>
           <%= workflow_stages_form.text_area :description, class: 'materialize-textarea' %>
         </div>
+        <%= workflow_stages_form.hidden_field :position, class: 'workflow_workflow_stages_attributes_position' %>
+        <%= workflow_stages_form.hidden_field :id , class: 'workflow_workflow_stages_attributes_id' %>
       </div>
   </li>
   <% end %>
