@@ -1,4 +1,4 @@
-<%= form_with(model: workflow, local: true) do |form| %>
+  <%= form_with(model: workflow, local: true) do |form| %>
 <% if workflow.errors.any? %>
 <div id="error_explanation">
   <h2><%= pluralize(workflow.errors.count, "error") %> prohibited this workflow from being saved:</h2>
@@ -11,48 +11,38 @@
 </div>
 <% end %>
 
-<div class="field">
+<div class="input-field">
   <%= form.label :name %>
   <%= form.text_field :name, id: :workflow_name %>
 </div>
 
-<div class="field">
-  <%= form.label :description %>
+<div class="input-field">
   <%= form.text_area :description, id: :workflow_description, class: 'materialize-textarea' %>
+  <%= form.label :description %>
 </div>
 
-Addresses:
-<div class="scale-transition scale-in">
+<h2>Stages</h2>
 
-
-<ul >
+<ul id="stage-list" class="collection">
   <%= form.fields_for :workflow_stages do |workflow_stages_form| %>
-  <li>
-    <%= workflow_stages_form.label :name %>
-    <%= workflow_stages_form.text_field :name %>
-
-    <%= workflow_stages_form.label :description %>
-    <%= workflow_stages_form.text_area :description, class: 'materialize-textarea' %>
+  <li class="collection-item">
+    <div class="row">
+        <div class="input-field col s6">
+          <%= workflow_stages_form.label :name %>
+          <%= workflow_stages_form.text_field :name %>
+        </div>
+        <div class="input-field col s6">
+          <%= workflow_stages_form.label :description %>
+          <%= workflow_stages_form.text_area :description, class: 'materialize-textarea' %>
+        </div>
+      </div>
   </li>
   <% end %>
 </ul>
-</div>
 
-<a id="scale-demo" href="#!" class="btn-floating btn-large waves-light">
+<a id="add_workflow_stages" href="" class="btn-floating right waves-effect waves-light">
     <i class="material-icons">add</i>
   </a>
-
-<ul>
-  <%= form.fields_for :workflow_stages do |workflow_stages_form| %>
-  <li>
-    <%= workflow_stages_form.label :name %>
-    <%= workflow_stages_form.text_field :name %>
-
-    <%= workflow_stages_form.label :description %>
-    <%= workflow_stages_form.text_area :description, class: 'materialize-textarea'   %>
-  </li>
-  <% end %>
-</ul>
 
 <div class="actions">
 
