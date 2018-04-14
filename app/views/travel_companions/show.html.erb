@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @travel_companion.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @travel_companion.description %>
+</p>
+
+<p>
+  <strong>Expertise:</strong>
+  <%= @travel_companion.expertise %>
+</p>
+
+<p>
+  <strong>Patience:</strong>
+  <%= @travel_companion.patience %>
+</p>
+
+<p>
+  <strong>Perfectionism:</strong>
+  <%= @travel_companion.perfectionism %>
+</p>
+
+<p>
+  <strong>Ambition:</strong>
+  <%= @travel_companion.ambition %>
+</p>
+
+<p>
+  <strong>Talkativeness:</strong>
+  <%= @travel_companion.talkativeness %>
+</p>
+
+<%= link_to 'Edit', edit_travel_companion_path(@travel_companion) %> |
+<%= link_to 'Back', travel_companions_path %>

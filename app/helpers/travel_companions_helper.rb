@@ -1,0 +1,2 @@
+module TravelCompanionsHelper
+end

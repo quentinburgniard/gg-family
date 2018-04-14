@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Travel Companions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Expertise</th>
+      <th>Patience</th>
+      <th>Perfectionism</th>
+      <th>Ambition</th>
+      <th>Talkativeness</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @travel_companions.each do |travel_companion| %>
+      <tr>
+        <td><%= travel_companion.name %></td>
+        <td><%= travel_companion.description %></td>
+        <td><%= travel_companion.expertise %></td>
+        <td><%= travel_companion.patience %></td>
+        <td><%= travel_companion.perfectionism %></td>
+        <td><%= travel_companion.ambition %></td>
+        <td><%= travel_companion.talkativeness %></td>
+        <td><%= link_to 'Show', travel_companion %></td>
+        <td><%= link_to 'Edit', edit_travel_companion_path(travel_companion) %></td>
+        <td><%= link_to 'Destroy', travel_companion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Travel Companion', new_travel_companion_path %>

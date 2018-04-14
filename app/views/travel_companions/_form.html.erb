@@ -1,0 +1,65 @@
+<%= form_with(model: travel_companion, local: true) do |form| %>
+  <% if travel_companion.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(travel_companion.errors.count, "error") %> prohibited this travel_companion from being saved:</h2>
+
+      <ul>
+      <% travel_companion.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :travel_companion_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :travel_companion_description %>
+  </div>
+
+  <div class="field">
+    <label>Travel Companion Apperance</label>
+    <div class="input-field col s12 m6">
+      <select name="travel_companion[travel_companion_appearance_id]" class="icons">
+      <% travel_companion_appearances_array = TravelCompanionAppearance.all.map { |appearance| [appearance.name, appearance.id, {'data-icon' => appearance.profile_picture}] } %>
+
+        <option value="" disabled selected>Appearance</option>
+        <%= options_for_select(travel_companion_appearances_array) %>
+      </select>
+
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :expertise %>
+    <%= form.number_field :expertise, id: :travel_companion_expertise %>
+  </div>
+
+  <div class="field">
+    <%= form.label :patience %>
+    <%= form.number_field :patience, id: :travel_companion_patience %>
+  </div>
+
+  <div class="field">
+    <%= form.label :perfectionism %>
+    <%= form.number_field :perfectionism, id: :travel_companion_perfectionism %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ambition %>
+    <%= form.number_field :ambition, id: :travel_companion_ambition %>
+  </div>
+
+  <div class="field">
+    <%= form.label :talkativeness %>
+    <%= form.number_field :talkativeness, id: :travel_companion_talkativeness %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
