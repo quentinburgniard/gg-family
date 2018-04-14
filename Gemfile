@@ -61,3 +61,10 @@ gem 'jquery-rails'
 
 # https://github.com/jquery-ui-rails/jquery-ui-rails
 gem 'jquery-ui-rails'
+
+# https://mkdev.me/en/posts/rails-5-vue-js-how-to-stop-worrying-and-love-the-frontend
+gem 'webpacker'
+gem 'foreman'
+
+# https://github.com/nathanvda/cocoon
+gem "cocoon"
