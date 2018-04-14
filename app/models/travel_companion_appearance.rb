@@ -1,0 +1,2 @@
+class TravelCompanionAppearance < ApplicationRecord
+end

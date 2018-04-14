@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Travel Companion Appearances</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Profile picture</th>
+      <th>Welcome picture</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @travel_companion_appearances.each do |travel_companion_appearance| %>
+      <tr>
+        <td><%= travel_companion_appearance.profile_picture %></td>
+        <td><%= travel_companion_appearance.welcome_picture %></td>
+        <td><%= link_to 'Show', travel_companion_appearance %></td>
+        <td><%= link_to 'Edit', edit_travel_companion_appearance_path(travel_companion_appearance) %></td>
+        <td><%= link_to 'Destroy', travel_companion_appearance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Travel Companion Appearance', new_travel_companion_appearance_path %>

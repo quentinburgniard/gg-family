@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Profile picture:</strong>
+  <%= @travel_companion_appearance.profile_picture %>
+</p>
+
+<p>
+  <strong>Welcome picture:</strong>
+  <%= @travel_companion_appearance.welcome_picture %>
+</p>
+
+<%= link_to 'Edit', edit_travel_companion_appearance_path(@travel_companion_appearance) %> |
+<%= link_to 'Back', travel_companion_appearances_path %>
