@@ -10,11 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180404153651) do
+ActiveRecord::Schema.define(version: 20180414213507) do
+
+  create_table "travel_companion_appearances", force: :cascade do |t|
+    t.string "profile_picture"
+    t.string "welcome_picture"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+  end
+
+  create_table "travel_companions", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.integer "travel_companion_appearance_id"
+    t.integer "expertise"
+    t.integer "patience"
+    t.integer "perfectionism"
+    t.integer "ambition"
+    t.integer "talkativeness"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["travel_companion_appearance_id"], name: "index_travel_companions_on_travel_companion_appearance_id"
+  end
 
   create_table "workflow_stages", force: :cascade do |t|
     t.string "name"
-    t.text "description"
+    t.text "default_description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "position", default: 0
