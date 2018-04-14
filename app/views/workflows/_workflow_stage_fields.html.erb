@@ -1,15 +1,17 @@
 <li class="collection-item stage-list-item">
   <div class="row">
-      <div class="input-field col s6">
+      <div class="input-field col s5">
         <%= f.label :name %>
         <%= f.text_field :name %>
       </div>
-      <div class="input-field col s6">
+      <div class="input-field col s5">
         <%= f.label :description %>
         <%= f.text_area :description, class: 'materialize-textarea' %>
       </div>
+      <div class="input-field col s2">
       <%= f.hidden_field :position, class: 'workflow_workflow_stages_attributes_position' %>
       <%= f.hidden_field :id , class: 'workflow_workflow_stages_attributes_id' %>
+      <%= link_to_remove_association "Remove", f,  class: "btn waves-effect waves-light red lighten-2" %>
+      </div>
     </div>
-    <%= link_to_remove_association "remove task", f %>
 </li>

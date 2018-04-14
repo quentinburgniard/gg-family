@@ -20,23 +20,26 @@
   <%= form.text_area :description, id: :workflow_description, class: 'materialize-textarea' %>
   <%= form.label :description %>
 </div>
-
+<div class="row valign-wrapper">
+<div class="col s6">
 <h2>Stages</h2>
+</div>
+<div class="col s6">
+      <%= link_to_add_association "Add stage", form, :workflow_stages, class: "btn waves-effect waves-light right", data: {association_insertion_node: "#list-stage", association_insertion_method: :append } %>
+      </div>
+    </div>
+
 
 <ul id="list-stage" class="collection">
   <%= form.fields_for :workflow_stages do |form_stage| %>
   <%= render 'workflow_stage_fields', :f => form_stage %>
   <% end %>
 </ul>
-      <%= link_to_add_association "+", form, :workflow_stages, class: "btn-floating right waves-effect waves-light", data: {association_insertion_node: "#list-stage", association_insertion_method: :append } %>
 
-<a id="add_workflow_stages" href="" class="">
-
-  </a>
 
 <div class="actions">
 
-  <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+  <button class="btn waves-effect waves-light right" type="submit" name="action">Submit
     <i class="material-icons right">send</i>
   </button>
 </div>
