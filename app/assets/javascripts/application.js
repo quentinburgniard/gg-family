@@ -15,4 +15,5 @@
 //= require materialize
 //= require jquery
 //= require jquery-ui/widgets/sortable
+//= require cocoon
 //= require_tree .

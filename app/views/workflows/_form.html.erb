@@ -23,27 +23,15 @@
 
 <h2>Stages</h2>
 
-<ul id="stage-list" class="collection">
-  <%= form.fields_for :workflow_stages do |workflow_stages_form| %>
-  <li class="collection-item">
-    <div class="row">
-        <div class="input-field col s6">
-          <%= workflow_stages_form.label :name %>
-          <%= workflow_stages_form.text_field :name %>
-        </div>
-        <div class="input-field col s6">
-          <%= workflow_stages_form.label :description %>
-          <%= workflow_stages_form.text_area :description, class: 'materialize-textarea' %>
-        </div>
-        <%= workflow_stages_form.hidden_field :position, class: 'workflow_workflow_stages_attributes_position' %>
-        <%= workflow_stages_form.hidden_field :id , class: 'workflow_workflow_stages_attributes_id' %>
-      </div>
-  </li>
+<ul id="list-stage" class="collection">
+  <%= form.fields_for :workflow_stages do |form_stage| %>
+  <%= render 'workflow_stage_fields', :f => form_stage %>
   <% end %>
 </ul>
+      <%= link_to_add_association "+", form, :workflow_stages, class: "btn-floating right waves-effect waves-light", data: {association_insertion_node: "#list-stage", association_insertion_method: :append } %>
 
-<a id="add_workflow_stages" href="" class="btn-floating right waves-effect waves-light">
-    <i class="material-icons">add</i>
+<a id="add_workflow_stages" href="" class="">
+
   </a>
 
 <div class="actions">
