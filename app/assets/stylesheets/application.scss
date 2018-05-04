@@ -17,3 +17,27 @@
 h1, h2, h3, h4, h5, h6 {
   font-family: 'MuseoSans';
 }
+
+html {
+  height: 100%;
+}
+
+body {
+  position:absolute;
+  top:0;
+  bottom:0;
+  right:0;
+  left:0;
+}
+
+.wrap {
+  min-height: 100%;
+}
+
+.nav-wrapper {
+  background-color: #3C5A76;
+
+  .brand-logo {
+    font-family: 'MuseoSans';
+  }
+}
