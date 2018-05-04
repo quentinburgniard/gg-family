@@ -1,0 +1,45 @@
+<style>
+.wrap {
+  background: #1b30a4;
+}
+.title-wrap {
+  position: relative;
+  text-align: center;
+  font-family: 'MuseoSans';
+  color: white;
+  text-transform: uppercase;
+  font-size: 30px;
+  line-height: 180px;
+}
+.title-wrap > div {
+  text-align: center;
+  width: 100%;
+  top: 0;
+  color: rgba(22, 163, 254, 0.06);
+  font-size: 120px;
+  position: absolute;
+}
+.nav-wrapper, nav {
+  background-color: transparent;
+  box-shadow: none;
+}
+.select-wrapper {
+  background-color: white;
+}
+</style>
+<div class='row'>
+  <div class='col m6 offset-m3'>
+    <div class='title-wrap'>
+      Choose your travel companion
+    <div>Travel</div>
+    <div>
+  </div>
+</div>
+<div class='row'>
+  <select name='travel_companion[travel_companion_id]' class='icons'>
+  <% travel_companion_array = TravelCompanion.all.map { |companion| [companion.name, companion.id] } %>
+
+    <option value='' disabled selected>Companion</option>
+    <%= options_for_select(travel_companion_array) %>
+  </select>
+</div>

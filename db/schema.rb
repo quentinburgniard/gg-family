@@ -10,7 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180414213507) do
+ActiveRecord::Schema.define(version: 20180426181523) do
+
+  create_table "companies", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_companies_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_companies_on_reset_password_token", unique: true
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.integer "stages"
+    t.integer "workflow_id"
+    t.integer "travel_companion_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["travel_companion_id"], name: "index_projects_on_travel_companion_id"
+    t.index ["workflow_id"], name: "index_projects_on_workflow_id"
+  end
 
   create_table "travel_companion_appearances", force: :cascade do |t|
     t.string "profile_picture"

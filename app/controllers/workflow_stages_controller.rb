@@ -1,5 +1,6 @@
 class WorkflowStagesController < ApplicationController
   before_action :set_workflow_stage, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_company!
 
   # GET /workflow_stages
   # GET /workflow_stages.json
