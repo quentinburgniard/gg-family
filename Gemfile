@@ -68,3 +68,6 @@ gem 'foreman'
 
 # https://github.com/nathanvda/cocoon
 gem "cocoon"
+
+# https://github.com/plataformatec/devise
+gem 'devise'
