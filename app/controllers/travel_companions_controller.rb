@@ -1,5 +1,6 @@
 class TravelCompanionsController < ApplicationController
   before_action :set_travel_companion, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_company!
 
   # GET /travel_companions
   # GET /travel_companions.json
