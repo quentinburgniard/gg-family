@@ -1,24 +1,10 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ruby on Rails, mise en place de notre plan d'affaires
 
-Things you may want to cover:
+De nombreux fichiers ont été ajouté à Rails : c'est l'intégration de webpack (je ne m'en suis pas servis finalement)
 
-* Ruby version
+Utilisation du framework materializecss
+https://materializecss.com/
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Utilisation de cocoon pour les formulaires et de Devise pour l'authentification
