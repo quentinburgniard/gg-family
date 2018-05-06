@@ -20,5 +20,16 @@
   <%= @project.workflow.name %>
 </p>
 
+<div class="collection">
+  <% stages = @project.workflow.workflow_stages %>
+  <% @project.workflow.workflow_stages.each_with_index do |stage, index| %>
+    <% if index == @project.stages %>
+      <div class="collection-item active"><%= stage.name %></div>
+    <% else %>
+    <div class="collection-item"><%= stage.name %></div>
+    <% end %>
+<% end %>
+</div>
+
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>
