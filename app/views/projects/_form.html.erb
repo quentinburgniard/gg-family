@@ -22,18 +22,16 @@
   </div>
 
   <div class="field">
-    <%= form.label :stages %>
-    <%= form.number_field :stages, id: :project_stages %>
-  </div>
-
-  <div class="field">
     <%= form.label :workflow_id %>
-    <%= form.text_field :workflow_id, id: :project_workflow_id %>
-  </div>
+    <div class="input-field col s12 m6">
+      <select name="project[workflow_id]">
+      <% workflows_array = Workflow.all.map { |workflow| [workflow.name, workflow.id] } %>
 
-  <div class="field">
-    <%= form.label :travel_companion_id %>
-    <%= form.text_field :travel_companion_id, id: :project_travel_companion_id %>
+        <option value="" disabled selected>Workflow</option>
+        <%= options_for_select(workflows_array) %>
+      </select>
+
+    </div>
   </div>
 
   <div class="actions">

@@ -1,35 +1,84 @@
+ <% progress = 0
+if @project.stages > 0
+  progress = (@project.stages.to_f / @project.workflow.workflow_stages.size.to_f * 100)
+end %>
+<style>
+.wrap {
+  background: #1b30a4;
+}
+.nav-wrapper, nav {
+  background-color: transparent;
+  box-shadow: none;
+}
+</style>
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @project.name %>
-</p>
+<div class='row'>
+  <div class='col s12 m4 offset-m1'>
+    <div class='card z-depth-3'>
+      <div class='card-content'>
+        <span class='card-title'><%= @project.name %></span>
+        <p>
+          <%= @project.workflow.name %><br>
+          <%= @project.description %>
+        </p>
+      </div>
+      <div class="card-action">
+        <p style="margin: 0; text-align: center;"><%= progress %> %</p>
+        <div class="progress" style="height: 5px;">
+          <div class="determinate" style="width: <%= progress %>%;  background-image: linear-gradient(to right, #41faa4 0%, #16a3fe 100%);"></div>
+        </div>
+      </div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @project.description %>
-</p>
+    </div>
+  </div>
 
-<p>
-  <strong>Stages:</strong>
-  <%= @project.stages %>
-</p>
 
-<p>
-  <strong>Workflow:</strong>
-  <%= @project.workflow.name %>
-</p>
 
-<div class="collection">
-  <% stages = @project.workflow.workflow_stages %>
-  <% @project.workflow.workflow_stages.each_with_index do |stage, index| %>
-    <% if index == @project.stages %>
-      <div class="collection-item active"><%= stage.name %></div>
-    <% else %>
-    <div class="collection-item"><%= stage.name %></div>
-    <% end %>
-<% end %>
+
+  <div class='col s12 m2'>
+    <% if company_signed_in? %>
+    <div class="row">
+      <%= form_with model: @project do |form| %>
+      <%= form.hidden_field :stages, :value => @project.stages-1 %>
+      <%= form.submit "Annuler l'étape", :class => "waves-effect waves-light btn-small" %>
+      <% end %>
+    </div>
+    <div class="row">
+      <%= form_with model: @project do |form| %>
+      <%= form.hidden_field :stages, :value => @project.stages+1 %>
+      <%= form.submit "Valider l'étape", :class => "waves-effect waves-light btn-small" %>
+      <% end %>
+    </div>
+    <div class="row">
+      <%= form_with model: @project do |form| %>
+      <%= form.hidden_field :action_required, :value => 1 %>
+      <%= form.submit "Action requise", :class => "waves-effect waves-light btn-small" %>
+      <% end %>
+    </div>
+      <% end %>
+  </div>
+
+
+  <div class='col s12 m4'>
+    <img class="tooltipped" data-position="right" data-tooltip="Je suis Léo.<br>
+    Je vais droit au but.<br>
+    Mon point fort: la rapidité." src="<%= @project.travel_companion.travel_companion_appearance.welcome_picture %>" alt="Companion" height="100" width="100">
+  </a>
+  </div>
 </div>
 
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+
+
+<div class='row'>
+  <div class='col s12 m4 offset-m1'>
+    <div class='card z-depth-3'>
+      <div class='card-content'>
+        <% stages = @project.workflow.workflow_stages %>
+        <% @project.workflow.workflow_stages.each_with_index do |stage, index| %>
+        <%= stage.name %><% if index < @project.stages %> ✅<% elsif index == @project.stages %> ⚙️<% end %><br>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

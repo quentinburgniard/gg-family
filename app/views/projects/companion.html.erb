@@ -36,10 +36,12 @@
   </div>
 </div>
 <div class='row'>
-  <select name='travel_companion[travel_companion_id]' class='icons'>
+  <%= form_with model: @project do |form| %>
+  <select name='project[travel_companion_id]' class='icons'>
   <% travel_companion_array = TravelCompanion.all.map { |companion| [companion.name, companion.id] } %>
-
     <option value='' disabled selected>Companion</option>
     <%= options_for_select(travel_companion_array) %>
   </select>
+  <%= form.submit "Choisir", :class => "waves-effect waves-light btn-small" %>
+  <% end %>
 </div>
