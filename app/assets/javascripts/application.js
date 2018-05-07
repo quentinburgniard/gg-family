@@ -1,15 +1,3 @@
-// This is a manifest file that'll be compiled into application.js, which will include all the files
-// listed below.
-//
-// Any JavaScript/Coffee file within this directory, lib/assets/javascripts, or any plugin's
-// vendor/assets/javascripts directory can be referenced here using a relative path.
-//
-// It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
-// compiled file. JavaScript code in this file should be added after the last require_* statement.
-//
-// Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
-// about supported directives.
-//
 //= require rails-ujs
 //= require turbolinks
 //= require materialize
@@ -17,3 +5,15 @@
 //= require jquery-ui/widgets/sortable
 //= require cocoon
 //= require_tree .
+
+document.addEventListener("turbolinks:load", function() {
+  var options = {edge: 'right'};
+  var elem = document.querySelectorAll('.sidenav');
+  var instance = M.Sidenav.init(elem, options);
+});
+
+document.addEventListener('turbolinks:load', function() {
+    var options = {};
+    var elems = document.querySelectorAll('.tooltipped');
+    var instances = M.Tooltip.init(elems, options);
+  });

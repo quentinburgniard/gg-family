@@ -70,6 +70,6 @@ class TravelCompanionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def travel_companion_params
-      params.require(:travel_companion).permit(:name, :description, :expertise, :patience, :perfectionism, :ambition, :talkativeness)
+      params.require(:travel_companion).permit(:name, :description, :expertise, :patience, :perfectionism, :ambition, :talkativeness, :travel_companion_appearance_id)
     end
 end
