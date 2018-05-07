@@ -5,23 +5,28 @@
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="turbolinks-visit-control" content="reload">
 </head>
 <body>
   <div class="wrap">
-  <nav>
-    <div class="nav-wrapper">
-      <div class="row">
-      <div class="col s1">
-        <%= link_to "GG Family", "/", class: "brand-logo"  %>
+    <nav>
+      <div class="nav-wrapper">
+        <div class="row">
+          <div class="col s1">
+            <%= link_to "GG Family", "/", class: "brand-logo"  %>
+          </div>
+          <ul class="right">
+            <li><a href="#" data-target="slide-out" class="sidenav-trigger" style="display: inline"><i class="material-icons">apps</i></a></li>
+          </ul>
+          <ul id="slide-out" class="sidenav">
+            <li><%= link_to "Projects", projects_path, class: "waves-effect"  %></li>
+            <li><%= link_to "Workflows", workflows_path, class: "waves-effect"  %></li>
+            <li><%= link_to "Travel Companions", travel_companions_path, class: "waves-effect"  %></li>
+          </ul>
+        </row>
       </div>
-      <ul class="right hide-on-med-and-down">
-        <li><a href=""><i class="material-icons">search</i></a></li>
-        <li><a href=""><i class="material-icons">view_module</i></a></li>
-      </ul>
-    </row>
-    </div>
-  </nav>
+    </nav>
     <%= yield %>
   </div>
 </body>
