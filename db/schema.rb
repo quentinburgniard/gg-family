@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180426181523) do
+ActiveRecord::Schema.define(version: 20180507024458) do
 
   create_table "companies", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -32,11 +32,12 @@ ActiveRecord::Schema.define(version: 20180426181523) do
   create_table "projects", force: :cascade do |t|
     t.string "name"
     t.text "description"
-    t.integer "stages"
+    t.integer "stages", default: 0, null: false
     t.integer "workflow_id"
     t.integer "travel_companion_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "action_required", default: 0, null: false
     t.index ["travel_companion_id"], name: "index_projects_on_travel_companion_id"
     t.index ["workflow_id"], name: "index_projects_on_workflow_id"
   end
