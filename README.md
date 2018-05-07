@@ -9,3 +9,5 @@ Utilisation du framework materializecss
 https://materializecss.com/
 
 Utilisation de cocoon pour les formulaires et de Devise pour l'authentification
+
+!(https://s3.quentinburgniard.fr/schema-gg-family.png)
