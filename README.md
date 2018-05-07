@@ -10,4 +10,4 @@ https://materializecss.com/
 
 Utilisation de cocoon pour les formulaires et de Devise pour l'authentification
 
-![](https://s3.quentinburgniard.fr/schema-gg-family.png)
+![](https://s3.quentinburgniard.fr/gg-family/schema.png)
