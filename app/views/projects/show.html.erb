@@ -1,6 +1,6 @@
  <% progress = 0
 if @project.stages > 0
-  progress = (@project.stages.to_f / @project.workflow.workflow_stages.size.to_f * 100)
+  progress = (@project.stages.to_f / @project.workflow.workflow_stages.size.to_f * 100).round
 end %>
 <style>
 .wrap {
@@ -61,10 +61,12 @@ end %>
 
 
   <div class='col s12 m4'>
+    <% if @project.travel_companion != nil %>
     <img class="tooltipped" data-position="right" data-tooltip="Je suis Léo.<br>
     Je vais droit au but.<br>
     Mon point fort: la rapidité." src="<%= @project.travel_companion.travel_companion_appearance.welcome_picture %>" alt="Companion" height="100" width="100">
   </a>
+  <% end %>
   </div>
 </div>
 
